@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build Output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Local User Data
+data/*.json
+!data/master_resume.json.example
+data/tailored_resumes/
+*.pdf
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vitest Coverage
+coverage/
+.vitest/
+
+# Internal Issue Specifications & Scripts
+docs/issues/
+scripts/
+
