@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume & Thread</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <img class="logo-img" src="../assets/standalone-logo.png" alt="Resume & Thread Logo">
+        <div class="brand-text">
+          <h1>Resume & Thread</h1>
+          <span class="badge-local">Bespoke Craftsmanship · 100% Local</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btnOptions" class="icon-btn" title="Master Resume & Settings" aria-label="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Server & Engine Health Indicator -->
+    <div id="serverStatus" class="status-banner connecting">
+      <span class="dot"></span>
+      <span class="status-text">Connecting to 127.0.0.1:4141...</span>
+    </div>
+
+    <!-- Engine Mode Notice Banner (Visible when using local deterministic engine) -->
+    <div id="engineNotice" class="engine-notice" style="display: none;">
+      <span class="notice-icon">🪡</span>
+      <div class="notice-body">
+        <span class="notice-title">Embedded Deterministic Engine Active</span>
+        <span class="notice-desc">Zero-latency local tailoring. To enable neural Gemma 2, run <code>ollama run gemma2:2b</code>.</span>
+      </div>
+    </div>
+
+    <!-- Active Job Scraped Card -->
+    <section class="job-card">
+      <div class="card-header">
+        <span class="section-label">TARGET JOB POSTING</span>
+        <button id="btnRescrape" class="btn-text" title="Refresh Page Scrape">↻ Rescrape</button>
+      </div>
+      <div class="job-meta">
+        <h2 id="jobTitle" class="job-title">Detecting active tab...</h2>
+        <p id="jobCompany" class="job-company">Open LinkedIn, Indeed, Greenhouse, or Lever</p>
+      </div>
+      <div id="jobKeywordPills" class="job-tags-preview" style="display: none;">
+        <!-- Dynamically populated top extracted skills -->
+      </div>
+    </section>
+
+    <!-- Primary Action Section -->
+    <div class="action-section">
+      <button id="btnTailor" class="btn-primary" disabled>
+        <span class="btn-icon">🪡</span>
+        <span id="btnTailorText">Tailor Resume Locally</span>
+      </button>
+    </div>
+
+    <!-- Results Container (Displayed once tailored) -->
+    <div id="resultsContainer" class="results-container" style="display: none;">
+      <!-- ATS Match Acceleration -->
+      <div class="score-card">
+        <div class="score-header">
+          <span class="section-label">ATS MATCH ACCELERATION</span>
+          <span id="scoreDelta" class="score-delta">+42%</span>
+        </div>
+        <div class="score-meters">
+          <div class="meter-box">
+            <span class="meter-label">Original Baseline</span>
+            <span id="scoreOriginal" class="meter-val">54%</span>
+          </div>
+          <div class="meter-arrow">➔</div>
+          <div class="meter-box highlight">
+            <span class="meter-label">Tailored Resume</span>
+            <span id="scoreTailored" class="meter-val success">96%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keyword Taxonomy Coverage -->
+      <div class="keywords-card">
+        <div class="card-header-sub">
+          <span class="section-label">KEYWORD TARGETING</span>
+          <span id="keywordsCount" class="badge-count">0 matched</span>
+        </div>
+        <div id="keywordsList" class="keyword-tags">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Experience Bullets Diff Preview -->
+      <div class="diff-card">
+        <span class="section-label">TAILORED BULLETS PREVIEW</span>
+        <div id="diffList" class="diff-items">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Export Actions -->
+      <div class="export-actions">
+        <button id="btnDownloadPdf" class="btn-secondary">
+          <span>📄</span> Download ATS PDF
+        </button>
+        <button id="btnCopyMarkdown" class="btn-secondary">
+          <span>📋</span> Copy Markdown
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>Zero Cloud Telemetry · Google Gemma 2 & Mastra</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
