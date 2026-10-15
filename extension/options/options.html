@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume & Thread - Master Resume & Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <img class="brand-logo-img" src="../assets/standalone-logo.png" alt="Resume & Thread Logo">
+        <div>
+          <h1>Resume & Thread: Configuration & Master Resume</h1>
+          <p class="subtitle">Stored 100% locally on your machine. Zero cloud telemetry. Zero subscription.</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="btnTestConnection" class="btn btn-secondary">Test Engine Connection</button>
+        <button id="btnResetDefault" class="btn btn-secondary">Load Sample</button>
+        <button id="btnSaveResume" class="btn btn-primary">Save Changes</button>
+      </div>
+    </header>
+
+    <!-- Connection Diagnostic Banner -->
+    <div id="connectionDiagnostic" class="diag-banner" style="display: none;">
+      <span id="diagIcon" class="diag-icon">🪡</span>
+      <div class="diag-details">
+        <span id="diagTitle" class="diag-title">Checking connection...</span>
+        <span id="diagMessage" class="diag-message"></span>
+      </div>
+    </div>
+
+    <!-- Quick Local Model Setup Guide -->
+    <section class="guide-card">
+      <div class="guide-header">
+        <h2>Local Google Gemma 2 Setup (Optional for Neural Inference)</h2>
+        <span class="guide-badge">Zero API Cost</span>
+      </div>
+      <p class="guide-text">
+        Resume & Thread functions out of the box with its embedded local deterministic engine. For deep contextual neural rewrites powered by <strong>Google Gemma 2</strong>, launch Ollama locally:
+      </p>
+      <div class="code-box">
+        <code>ollama run gemma2:2b</code>
+        <button id="btnCopyOllamaCmd" class="btn-copy" title="Copy Command">Copy</button>
+      </div>
+    </section>
+
+    <!-- Editor Grid -->
+    <div class="editor-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Master Resume (JSON Schema)</h2>
+          <span class="badge">Zod Validated</span>
+        </div>
+        <textarea id="jsonEditor" spellcheck="false" placeholder="Paste your Master Resume JSON here..."></textarea>
+      </div>
+
+      <div class="panel preview-panel">
+        <div class="panel-header">
+          <h2>Structured Live Preview</h2>
+          <span id="saveStatus" class="status-saved">Saved Locally</span>
+        </div>
+        <div id="resumePreview" class="preview-content">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
