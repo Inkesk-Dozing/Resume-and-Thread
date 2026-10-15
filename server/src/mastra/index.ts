@@ -1,4 +1,5 @@
 import { JobSpec, MasterResume, TailorResponse } from '../schemas/index.js';
+import { calculateAtsScore } from './tools/ats-scorer.js';
 
 export const mastraEngine = {
   async getHealthStatus() {
@@ -11,7 +12,7 @@ export const mastraEngine = {
         url: 'http://127.0.0.1:11434',
         available: false,
         activeModel: 'deterministic-gemma-rule-engine',
-        mode: 'deterministic-adapter',
+        mode: 'deterministic-adapter' as const,
         notice: 'Local gateway operational.'
       }
     };
@@ -19,19 +20,19 @@ export const mastraEngine = {
   async tailor(jobSpec: JobSpec, masterResume: MasterResume, options?: any): Promise<TailorResponse> {
     return {
       tailoredResume: masterResume as any,
-      atsScore: {
-        score: 100,
-        keywordScore: 100,
-        verbScore: 100,
-        metricScore: 100,
-        missingKeywords: [],
-        suggestions: []
+      atsScore: calculateAtsScore(jobSpec, masterResume, masterResume),
+      artifacts: {
+        markdown: '',
+        pdfBase64: ''
       },
-      metadata: {
-        tailoredAt: new Date().toISOString(),
-        engineUsed: 'gateway-passthrough',
-        generationTimeMs: 1
+      modelTelemetry: {
+        provider: 'deterministic-adapter',
+        model: 'deterministic-gemma-rule-engine',
+        latencyMs: 1,
+        mode: 'deterministic-adapter',
+        status: 'success'
       }
     };
   }
 };
+export { calculateAtsScore };
