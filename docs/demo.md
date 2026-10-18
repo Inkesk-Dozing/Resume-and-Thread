@@ -79,10 +79,16 @@ graph TD
 
 The repository includes a complete demonstration of the system in action: inspecting a *Staff Infrastructure & Distributed Systems Engineer* job listing at Stripe, executing the 5-step Mastra DAG, increasing ATS match compatibility from **54% to 96% (+42% boost)**, and compiling an ATS-compliant PDF.
 
-![Resume & Thread Live Demonstration](https://raw.githubusercontent.com/Inkesk-Dozing/Resume-and-Thread/main/docs/media/resume-and-thread-demo.webp)
+<p align="center">
+  <a href="https://github.com/Inkesk-Dozing/Resume-and-Thread/raw/main/docs/media/resume-and-thread-demo.webp" target="_blank">
+    <img src="https://raw.githubusercontent.com/Inkesk-Dozing/Resume-and-Thread/main/docs/media/devto-cover-banner.jpg" alt="Resume & Thread Live Demo Video" width="100%" style="border-radius: 8px;" />
+  </a>
+  <br/>
+  <em>▶ <strong><a href="https://github.com/Inkesk-Dozing/Resume-and-Thread/raw/main/docs/media/resume-and-thread-demo.webp">Click here to open the full HD animated demo recording</a></strong></em>
+</p>
 
-- **Walkthrough Guide**: [`docs/demo.md`](https://github.com/Inkesk-Dozing/Resume-and-Thread/blob/main/docs/demo.md)
-- **Standalone Live Demo**: Open `demo-browser.html` locally in any modern browser to test the full pipeline, experience diffs, and PDF viewer without installing dependencies.
+- **Direct Video Stream**: [Watch `resume-and-thread-demo.webp` directly on GitHub](https://github.com/Inkesk-Dozing/Resume-and-Thread/raw/main/docs/media/resume-and-thread-demo.webp)
+- **Standalone Live Demo**: Open `demo-browser.html` locally in any modern browser to test the full interactive pipeline, experience diffs, and PDF viewer without installing dependencies.
 
 ---
 
